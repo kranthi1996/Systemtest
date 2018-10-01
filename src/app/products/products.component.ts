@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
   constructor(private router: Router, private productsservice: ProductsService) { }
   ngOnInit() {
     this.products = this.productsservice.getData();
-    var filtered = _.uniqWith(this.products, _.isEqual);
     this.products.forEach(obj => {
       obj.BrandProducts.forEach(obj => {
         this.product_items.push(obj);
