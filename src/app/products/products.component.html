@@ -16,7 +16,7 @@
         <div *ngFor="let branproduct of product_items|slice:0:6;let i=index;let even=even;">
             <a href="" class="small" data-value="option1" tabIndex="-1">
                 <span *ngIf="even">
-                    <input type="checkbox"  [checked]="branproduct.selected"  (click)="product(isChecked?'A':'B',branproduct.ProductType)">{{branproduct.ProductType}}
+                    <input type="checkbox"  [checked]="branproduct.selected"  (click)="product(isChecked?'A':'B',branproduct)">{{branproduct.ProductType}}
                 </span>
             </a>
 
@@ -49,7 +49,6 @@
         
     </div>
 </div>
-
 
 
 
