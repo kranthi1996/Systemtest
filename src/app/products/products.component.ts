@@ -21,6 +21,10 @@ export class ProductsComponent implements OnInit {
   selected_value: boolean = false;
   filtered;
   products_types = [];
+  show_data:boolean=true;
+  filter = false;
+  allVals;
+  arr=[];
   constructor(private router: Router, private productsservice: ProductsService) { }
   ngOnInit() {
     this.products = this.productsservice.getData();
@@ -41,19 +45,26 @@ export class ProductsComponent implements OnInit {
   }
 
   selectProduct(event) {
+    console.log(event);
+    if(event.type=="change"){
+      this.data.splice(0,this.data.length);
+    } 
     if (event.target[1] == undefined) {
       alert("please select the brand first");
     }
     this.brand_products.forEach(obj => {
       if (obj.ProductType == this.brandproduct) {
         this.data.push(obj);
+        
+        console.log(this.data);
         this.model = true;
         this.router.navigate(['./list'], { queryParams: { BrandName: this.brandname, ProductName: this.brandproduct } })
       }
     });
   }
 
-  product(productname) {
+  product(event,productname) {
+    console.log(event)
     this.selected_value = true;
     var result = this.filtered.find(obj => {
       if (obj.ProductType == productname) {
@@ -62,6 +73,8 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
+  
+
 }
 
 

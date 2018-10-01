@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row col-lg-6 col-md-6">
         <label>Select the brand</label>
-        <select [(ngModel)]="brandname" (change)="selectBrand($event)">
+        <select [(ngModel)]="brandname" (change)="selectBrand($event)" >
             <!-- <option>--Select the brand--</option> -->
             <option *ngFor="let product of products">{{product.BrandName}}</option>
         </select>&nbsp;&nbsp;&nbsp;
@@ -16,12 +16,16 @@
         <div *ngFor="let branproduct of product_items|slice:0:6;let i=index;let even=even;">
             <a href="" class="small" data-value="option1" tabIndex="-1">
                 <span *ngIf="even">
-                    <input type="checkbox" (change)="product(branproduct.ProductType)">{{branproduct.ProductType}}
+                    <input type="checkbox"  [checked]="branproduct.selected"  (click)="product(isChecked?'A':'B',branproduct.ProductType)">{{branproduct.ProductType}}
                 </span>
             </a>
+
+        </div><br/>
+        <div class="col-lg-12" *ngFor="let product_types of products_types">
+            {{product_types}}
         </div>
     </div>
-    <div class="row data ">
+    <div class="row data">
         <div class="col-lg-6">
             <div *ngIf="model">
                 <span>
@@ -31,18 +35,23 @@
                     <strong>Model_Number</strong>
                 </span>
             </div>
+            
             <br/>
             <div *ngFor="let data of data">
                 <div>
-                    <span class="model_number">{{data.ModelName}}</span>
+                    <span class="model_number">{{data.ModelName}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="model_name">{{data.ModelNumber}}</span>
                 </div>
                 <div></div>
                 <br/>
             </div>
         </div>
-        <div class="col-lg-6" *ngFor="let product_types of products_types">
-            {{product_types}}
-        </div>
+        
     </div>
 </div>
+
+
+
+
+
+
