@@ -73,18 +73,18 @@ export class ProductsComponent implements OnInit {
     }
     if (productname.selected == false) {
       if (productname.ProductType == Dataconfig.TV) {
-        var a = this.products_types.indexOf("LGultraslim1");
-        var b = this.products_types.indexOf("MIultraslim2");
+        var a = this.products_types.indexOf(Dataconfig.TV1.FIRST);
+        var b = this.products_types.indexOf(Dataconfig.TV1.LAST);
         this.products_types.splice(a, b + 1);
       }
-      if (productname.ProductType == Dataconfig.FRIDGE1) {
-        var a = this.products_types.indexOf(Dataconfig.FRIDGE.FIRST);
-        var b = this.products_types.indexOf(Dataconfig.FRIDGE.SECOND);
+      if (productname.ProductType == Dataconfig.FRIDGE) {
+        var a = this.products_types.indexOf(Dataconfig.FRIDGE1.FIRST);
+        var b = this.products_types.indexOf(Dataconfig.FRIDGE1.LAST);
         this.products_types.splice(a, b + 1);
       }
-      if (productname.ProductType == Dataconfig.MOBILE1) {
-        var a = this.products_types.indexOf(Dataconfig.MOBILE.FIRST);
-        var b = this.products_types.indexOf(Dataconfig.MOBILE.SECOND);
+      if (productname.ProductType == Dataconfig.MOBILE) {
+        var a = this.products_types.indexOf(Dataconfig.MOBILE1.FIRST);
+        var b = this.products_types.indexOf(Dataconfig.MOBILE1.LAST);
         this.products_types.splice(a, b + 1);
       }
     }
