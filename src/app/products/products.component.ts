@@ -37,6 +37,7 @@ export class ProductsComponent implements OnInit {
     this.filtered = _.uniqWith(this.product_items, _.isEqual);
   }
   selectBrand(event) {
+    console.log(event)
     this.products.forEach(obj => {
       if (obj.BrandName == event.target.value) {
         this.brand_products = obj.BrandProducts;
